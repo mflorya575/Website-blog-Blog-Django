@@ -1,0 +1,15 @@
+<div class="pagination p-3">
+    {% if page.has_previous %}
+        <a class="page-link page-link__previous" href="?page={{ page.previous_page_number }}">Назад</a>
+    {% endif %}
+    {% for pages in page.paginator.page_range %}
+        {% if page.number != pages %}
+            <a class="page-link active" href="?page={{ pages }}">{{ pages }}</a>
+        {% else %}
+            <a class="page-link disabled" href="?page={{ pages }}">{{ pages }}</a>
+        {% endif %}
+    {% endfor %}
+    {% if page.has_next %}
+        <a class="page-link page-link__next" href="?page={{ page.next_page_number }}">Далее</a>
+    {% endif %}
+</div>

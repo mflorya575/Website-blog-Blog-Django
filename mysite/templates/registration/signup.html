@@ -1,0 +1,25 @@
+{% extends "blog/base.html" %}
+{% block title %} Sign Up {% endblock %}
+{% block content %}
+    <h2> Зарегистрироваться </h2>
+    {% if form.errors %}
+        <div style="display: table; margin: 0 auto; text-align: left;">
+            {% for key, value in form.errors.items %}
+                <strong>{{ value }}</strong>
+            {% endfor %}
+        </div>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <p>Ник: {{ form.username }}</p>
+        <p>Email: {{ form.email }}</p>
+        <p>Имя: {{ form.first_name }}</p>
+        <p>Фамилия: {{ form.last_name }}</p>
+        <p>Пароль: {{ form.password1 }}
+            {{ form.errors.password }}</p>
+        <p>Повторить пароль: {{ form.password2 }}</p>
+        <button class="button-signup" type="submit">Зарегистрироваться</button>
+
+    </form>
+    <a href="/accounts/login/">Уже есть аккаунт? Войдите</a>
+{% endblock %}
