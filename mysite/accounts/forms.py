@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .models import Profile
+from django_summernote.widgets import SummernoteWidget
 
 
 class SignUpForm(UserCreationForm):
@@ -45,7 +46,7 @@ class UpdateUserForm(forms.ModelForm):
 
 class UpdateProfileForm(forms.ModelForm):
     avatar = forms.ImageField(widget=forms.FileInput())
-    bio = forms.CharField(widget=forms.Textarea(attrs={'rows': 5}))
+    bio = forms.CharField(widget=SummernoteWidget())
 
     class Meta:
         model = Profile

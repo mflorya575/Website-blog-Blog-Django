@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
     'django.contrib.postgres',
     'accounts.apps.AccountsConfig',
+    'social_django',
+    'django_summernote',
 ]
 
 MIDDLEWARE = [
@@ -116,7 +118,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'ru-RU'
 
-TIME_ZONE = 'UTC' # UTC  /// Europe/Moscow
+TIME_ZONE = 'UTC'  # UTC  /// Europe/Moscow
 
 USE_I18N = True
 
@@ -154,3 +156,18 @@ SESSION_COOKIE_AGE = 60 * 60 * 24 * 30
 
 MEDIA_ROOT = BASE_DIR/'media'
 MEDIA_URL = '/media/'
+
+SUMMERNOTE_CONFIG = {
+    # Использование SummernoteWidget - в iframe
+    'iframe': True,
+
+    # Или вы можете установить значение `False`, чтобы использовать SummernoteInplaceWidget - без режима iframe.
+    # В этом случае вам придется загружать источники и зависимости Bootstrap/jQuery вручную.
+    # Используйте это, когда вы уже используете темы на основе Bootstrap/jQuery.
+
+    # Пользовательские настройки Summernote
+
+        # Размеры редактора
+        'width': '100%',
+        'height': '150',
+}
