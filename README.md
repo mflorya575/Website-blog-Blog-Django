@@ -7,3 +7,5 @@
 Дополнительные используемые библиотеки:
 social-auth-app-django==5.0.0
 django-summernote (текстовый редактор)
+djangorestframework
+django-filter
